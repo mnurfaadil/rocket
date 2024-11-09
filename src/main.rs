@@ -11,7 +11,12 @@ fn hi() -> &'static str {
     "Hi again, from Rocket Repo!"
 }
 
+#[get("/hello")]
+fn hello() -> &'static str {
+    "Hello, from Rocket Repo!"
+}
+
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index, hi])
+    rocket::build().mount("/", routes![index, hi, hello])
 }
